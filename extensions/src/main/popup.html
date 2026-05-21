@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simply</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Loading ── -->
+    <div id="screen-loading" class="screen screen-center">
+      <div class="loader"></div>
+      <p class="muted sm mt-3">Memuat...</p>
+    </div>
+
+    <!-- ── Belum Login ── -->
+    <div id="screen-auth" class="screen screen-center hidden">
+      <div class="splash-card">
+        <div class="splash-logo">S</div>
+        <h2 class="splash-title">Selamat Datang</h2>
+        <p class="muted">Login ke dashboard Simply untuk menggunakan extension ini.</p>
+        <a id="login-btn" href="#" target="_blank" class="btn btn-primary w-full mt-4">
+          🔑 Login ke Dashboard
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Guard Warning ── -->
+    <div id="screen-guard" class="screen screen-center hidden">
+      <div class="splash-card">
+        <div class="splash-icon">🛡️</div>
+        <h2 class="splash-title">Guard Diperlukan</h2>
+        <p class="muted">Install dan aktifkan Simply Guard Extension untuk keamanan akun Anda.</p>
+        <a id="download-guard-btn" href="#" target="_blank" class="btn btn-primary w-full mt-4">
+          ⬇️ Download Guard
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Error ── -->
+    <div id="screen-error" class="screen screen-center hidden">
+      <div class="splash-card">
+        <div class="splash-icon">⚠️</div>
+        <h2 id="error-title" class="splash-title">Terjadi Kesalahan</h2>
+        <p id="error-message" class="muted"></p>
+        <button id="retry-btn" class="btn btn-primary w-full mt-4">Coba Lagi</button>
+      </div>
+    </div>
+
+    <!-- ── Main ── -->
+    <div id="screen-main" class="screen hidden">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="header-top">
+          <span class="brand">Simply</span>
+          <div class="header-right">
+            <div id="guard-dot" class="guard-dot" title="Simply Guard"></div>
+            <button id="refresh-btn" class="icon-btn" title="Refresh">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="user-row">
+          <div class="avatar" id="user-avatar">U</div>
+          <div class="user-meta">
+            <span class="user-name" id="user-name">Loading...</span>
+            <span class="plan-badge" id="user-plan">free</span>
+          </div>
+          <button id="logout-btn" class="icon-btn logout-btn" title="Logout">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Search -->
+      <div class="search-bar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="search-input" type="text" placeholder="Cari service..." autocomplete="off" />
+      </div>
+
+      <!-- Service Grid -->
+      <div id="services-grid" class="services-grid">
+        <!-- Dynamically rendered -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon">📦</div>
+        <p>Tidak ada service tersedia</p>
+        <small>Upgrade plan untuk akses lebih banyak</small>
+      </div>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <a id="footer-dashboard" href="#" target="_blank" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a id="footer-upgrade" href="#" target="_blank" class="footer-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+          </svg>
+          Upgrade
+        </a>
+      </footer>
+    </div>
+
+    <!-- ── Account Panel (slide-up overlay) ── -->
+    <div id="account-overlay" class="account-overlay hidden">
+      <div id="account-panel" class="account-panel">
+        <div class="panel-header">
+          <div class="panel-service-info">
+            <div id="panel-icon-wrap" class="panel-icon-wrap">
+              <img id="panel-icon-img" class="panel-icon-img hidden" src="" alt="" />
+              <span id="panel-icon-emoji" class="panel-icon-emoji">🎬</span>
+            </div>
+            <div>
+              <h3 id="panel-name">Netflix</h3>
+              <span id="panel-count" class="panel-count">3 akun tersedia</span>
+            </div>
+          </div>
+          <button id="panel-close" class="icon-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M18 6 6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div id="panel-accounts" class="panel-accounts">
+          <!-- Account items rendered dynamically -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

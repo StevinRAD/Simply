@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "Simply - Service Manager",
+  "version": "1.0.0",
+  "description": "Akses mudah ke semua layanan premium Anda dengan satu klik",
+  "permissions": [
+    "management",
+    "cookies",
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://simply-tau.vercel.app/*",
+    "*://*.netflix.com/*",
+    "*://*.spotify.com/*",
+    "*://*.youtube.com/*",
+    "*://*.primevideo.com/*",
+    "*://*.disneyplus.com/*",
+    "*://*.hulu.com/*",
+    "*://*.hbomax.com/*",
+    "*://*.crunchyroll.com/*",
+    "*://*.viu.com/*",
+    "*://*.iqiyi.com/*",
+    "*://*.wetv.vip/*",
+    "*://*.canva.com/*",
+    "*://*.figma.com/*",
+    "*://*.adobe.com/*",
+    "*://*.notion.so/*",
+    "*://*.grammarly.com/*",
+    "*://*.chatgpt.com/*",
+    "*://*.openai.com/*",
+    "*://*.midjourney.com/*",
+    "*://*.github.com/*",
+    "*://*.linkedin.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Simply - Service Manager"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
