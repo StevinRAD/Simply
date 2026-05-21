@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Extension source folders - only ZIP files are tracked
+extensions/main/
+extensions/guard/
+extensions/src/
