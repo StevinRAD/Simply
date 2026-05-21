@@ -1,0 +1,484 @@
+/* Downloads Page Styles */
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: white;
+  font-size: 1.25rem;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+}
+
+.backLink:hover {
+  color: white;
+  transform: translateX(-4px);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Extensions Grid */
+.extensionsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.guardCard {
+  border-top: 4px solid #10b981;
+}
+
+.mainCard {
+  border-top: 4px solid #6366f1;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cardIcon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.cardBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cardDescription {
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* Features */
+.features {
+  margin-bottom: 1.5rem;
+}
+
+.featuresTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featuresList li {
+  padding: 0.5rem 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Card Actions */
+.cardActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.version {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* GitHub Section */
+.githubSection {
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+.githubCard {
+  background: #0d1117;
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap;
+}
+
+.githubIcon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.githubCard h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f0f6fc;
+  margin-bottom: 0.25rem;
+}
+
+.githubCard p {
+  color: #8b949e;
+  font-size: 0.95rem;
+}
+
+.githubCard > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.btnGithub {
+  background: #238636;
+  color: white;
+  box-shadow: 0 4px 12px rgba(35, 134, 54, 0.4);
+  flex-shrink: 0;
+}
+
+.btnGithub:hover {
+  background: #2ea043;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(35, 134, 54, 0.5);
+}
+
+/* Instructions */
+.instructions {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.stepsContainer {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.stepContent h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.stepContent p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.stepContent code {
+  background: #f3f4f6;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #6366f1;
+}
+
+/* Troubleshooting */
+.troubleshooting {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out;
+}
+
+.faqList {
+  display: grid;
+  gap: 1rem;
+}
+
+.faqItem {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.faqItem:hover {
+  border-color: #6366f1;
+  background: #f9fafb;
+}
+
+.faqItem summary {
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::before {
+  content: '▶';
+  display: inline-block;
+  margin-right: 0.75rem;
+  transition: transform 0.2s;
+  color: #6366f1;
+}
+
+.faqItem[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.faqItem p {
+  margin-top: 0.75rem;
+  color: #6b7280;
+  line-height: 1.6;
+  padding-left: 1.5rem;
+}
+
+/* Support */
+.support {
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.supportCard {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.supportCard h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.supportCard p {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.supportActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.supportActions .btn {
+  background: white;
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.supportActions .btn:hover {
+  background: #f9fafb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .extensionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .instructions,
+  .troubleshooting {
+    padding: 1.5rem;
+  }
+
+  .step {
+    gap: 1rem;
+  }
+
+  .stepNumber {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .supportCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .supportActions {
+    flex-direction: column;
+  }
+
+  .supportActions .btn {
+    width: 100%;
+  }
+}

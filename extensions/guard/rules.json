@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/tv2*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/account*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/youraccount*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/profiles/manage*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/manageprofiles*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/profiles/transfer*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/security*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/password*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/email*",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.netflix.com/browse"
+      }
+    },
+    "condition": {
+      "urlFilter": "||netflix.com/billing*",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]

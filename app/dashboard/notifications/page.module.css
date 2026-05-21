@@ -1,0 +1,275 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  color: white;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+}
+
+.backLink:hover {
+  color: white;
+  gap: 0.7rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btnSecondary,
+.btnDanger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btnSecondary {
+  background: white;
+  color: #667eea;
+}
+
+.btnSecondary:hover {
+  background: #f7fafc;
+}
+
+.btnDanger {
+  background: rgba(229, 62, 62, 0.9);
+  color: white;
+}
+
+.btnDanger:hover {
+  background: #e53e3e;
+}
+
+.emptyState {
+  background: white;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.emptyIcon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #cbd5e0;
+}
+
+.emptyState h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyState p {
+  color: #718096;
+  margin: 0;
+}
+
+.notificationsList {
+  display: grid;
+  gap: 1rem;
+}
+
+.notificationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  border-left: 4px solid;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s;
+}
+
+.notificationCard:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.notificationCard.read {
+  opacity: 0.6;
+}
+
+.notificationCard.info {
+  border-left-color: #4299e1;
+}
+
+.notificationCard.success {
+  border-left-color: #48bb78;
+}
+
+.notificationCard.warning {
+  border-left-color: #ed8936;
+}
+
+.notificationCard.error {
+  border-left-color: #f56565;
+}
+
+.notifIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.info .notifIcon {
+  background: #bee3f8;
+  color: #2c5282;
+}
+
+.success .notifIcon {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.warning .notifIcon {
+  background: #feebc8;
+  color: #7c2d12;
+}
+
+.error .notifIcon {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.notifContent {
+  flex: 1;
+}
+
+.notifContent h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0 0 0.5rem 0;
+}
+
+.notifContent p {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+}
+
+.timestamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: #a0aec0;
+}
+
+.deleteBtn {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+  background: #fed7d7;
+  color: #e53e3e;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .btnSecondary,
+  .btnDanger {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .notificationCard {
+    padding: 1rem;
+  }
+
+  .notifIcon {
+    width: 36px;
+    height: 36px;
+  }
+}

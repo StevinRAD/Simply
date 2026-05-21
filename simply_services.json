@@ -1,0 +1,813 @@
+{
+  "premium": [
+    {
+      "src": "https://play-lh.googleusercontent.com/EpJMVmU4FP-cAyb_KwiFohiqBL24XVtomMMQPeFKxODrunPVdqr2IYRlARJNVjIiIWQ",
+      "alt": "Academia",
+      "name": "Academia"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/OU0BlP8C9-V7ECl2crma7B48nzDbK7liSLjn0j_fpTlyWG6qyEE-mw_KFZ9aOXF0a3w",
+      "alt": "Alight Motion",
+      "name": "Alight Motion"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE",
+      "alt": "Apple Music",
+      "name": "Apple Music"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/1XBAZjSOWaVM7UDFKvzuMR-WRoR5gCnsYrw17_ihHLcJKT9Qc7hXptHwWQ3Bf83mry4",
+      "alt": "Apple TV+",
+      "name": "Apple TV+"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/jBDZq3aBmCXuvtuJHEasqsdYPRxMBGzYmEha4dMlgoIk19Zlh6BGQC08Zt6Ifrmzhg=w240-h480-rw",
+      "alt": "Bein Sports",
+      "name": "Bein Sports"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/oQnd9u11H7j1g99Pzswt5LTm52g8XyMrgz0GRBX5lmzdPv2Vt7bBrOKgbVbs-gHc504=w240-h480-rw",
+      "alt": "Brain.fm",
+      "name": "Brain.fm"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT07Aba7sYgSCOIW9P2mAWcAcO9r_tpM_svzw&s",
+      "alt": "Brilliant",
+      "name": "Brilliant"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/nug7F0n-jWMpAWLaU7Qi1kuTIYjrAtUJmZd5FW4mEyspYR7-zGa-3_fwnYkPgyzHozE3",
+      "alt": "Bstation",
+      "name": "Bstation"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdfQ07W8Z1b0olxbugP-i2Hk5BJo6I-B8yKA&s",
+      "alt": "Busuu",
+      "name": "Busuu"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrXZQ0Wq17Y4CjDKiytXbd1hG39lu6u-rBsw&s",
+      "alt": "Bypass | HIX AI",
+      "name": "Bypass | HIX AI"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVpNp17p7NogV0-YTH9UnJYGg7IowMwYmj3w&s",
+      "alt": "BypassGPT",
+      "name": "BypassGPT"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/JC3HW-ps59VAEU3vuJoi3I5XB_IQ9ISuILLudUY9uLSW7eKfqtXitrB-fF865rV4TQ",
+      "alt": "Canva",
+      "name": "Canva"
+    },
+    {
+      "src": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtHdRB6xk71KqOPxE23.XPiUcBp9_h5.Va3lapJy.K9tACxvjL4_WF3lJCLozay.Kx6V1mfBFaOOF4V5Rx4RHLY-&format=source",
+      "alt": "CapCut",
+      "name": "CapCut"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/chatgptplus.png",
+      "alt": "ChatGPT",
+      "name": "ChatGPT"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJ8v1EICNl78zLPEfHkAimzusUBWT7z2nTw&s",
+      "alt": "Chutes",
+      "name": "Chutes"
+    },
+    {
+      "src": "https://img.icons8.com/color/1200/clickup.jpg",
+      "alt": "ClickUp",
+      "name": "ClickUp"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2sH_6-EH9eaPT8YfscbEcq3-i1KLzvZ50JQ&s",
+      "alt": "Codedex",
+      "name": "Codedex"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRweoQJzl9iPGJqBYN-uOcjxdcH72RA9W1PKiCmAisHjg&s",
+      "alt": "Consensus",
+      "name": "Consensus"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/HWA5QTohakrzdjQnJWyPih_CDFubc9PZi0gW1v-eoopRUAGWpHspB-NeFBH3FQnQc6kz=w240-h480-rw",
+      "alt": "Coohom",
+      "name": "Coohom"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/FGtdclS6wXoOO9lA-9DkK9Skis0T-tY2SCFAl7wLX4ZDFSNO3RBADCEcnCMInsZCKlc",
+      "alt": "Course Hero",
+      "name": "Course Hero"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/H8crzfriK6t5b0N5wXykhxMjPopyWGDZPaMJlvWlAKb7EG-26KGu15P_RnFDinBw1Jc",
+      "alt": "Coursera",
+      "name": "Coursera"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/crunchyroll.png",
+      "alt": "Crunchyroll",
+      "name": "Crunchyroll"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/YXqChSEFUdn1A9Jxu9sIZPwlyLYaA_sU_U_h-uW_RyXhEx1WzBNqNWcdNwC3WOGzjg",
+      "alt": "Curiosity Stream",
+      "name": "Curiosity Stream"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/ytc/AIdro_m6psai1Pd5oG3nGbw_hVfG-qmJ8R1ntco83MTXDf5cdoo=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "DataCamp",
+      "name": "DataCamp"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/d2zqBFBEymSZKaVg_dRo1gh3hBFn7_Kl9rO74xkDmnJeLgDW0MoJD3cUx0QzZN6jdsg",
+      "alt": "DeepSeek",
+      "name": "DeepSeek"
+    },
+    {
+      "src": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/86/MTA-182203320/no_brand_drama_box_full01_cpdx3p31.jpg",
+      "alt": "DramaBox",
+      "name": "DramaBox"
+    },
+    {
+      "src": "https://www.langoly.com/wp-content/uploads/2020/03/Duolingo-app-icon.png",
+      "alt": "Duolingo",
+      "name": "Duolingo"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiHav_EAmaStXwVlYg4pL5sFbdOyKcRKefbg&s",
+      "alt": "Educative",
+      "name": "Educative"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/ksfLLIjvy8Y5vvtAmnSzIeF-svAUzrZyJBs-YwCVZUZGct8XNDb6-KJSepMwCrcuFkb6b8oCczo=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "Elicit",
+      "name": "Elicit"
+    },
+    {
+      "src": "https://elements.envato.com/favicon.svg",
+      "alt": "Envato Elements",
+      "name": "Envato Elements"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/epidemicsound.jpg",
+      "alt": "Epidemic Sound",
+      "name": "Epidemic Sound"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/i6RqZKwmmgvCq8FGoGewoEDWYq8Q2ghi8gUnWLBlPHmYCyRM4bl39YZTAoHu7mzU8vN7",
+      "alt": "Everand",
+      "name": "Everand"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/hoVBnPBRehmXsCqESLXRH2E3OTxklkwKZlb1psn7imm0VUSobn2nevS9RRFWb9GM4-o",
+      "alt": "Figma",
+      "name": "Figma"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/flaticon.png",
+      "alt": "Flaticon",
+      "name": "Flaticon"
+    },
+    {
+      "src": "https://static.vecteezy.com/system/resources/previews/055/687/055/non_2x/rectangle-gemini-google-icon-symbol-logo-free-png.png",
+      "alt": "Gemini AI",
+      "name": "Gemini AI"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/grammarly.png",
+      "alt": "Grammarly",
+      "name": "Grammarly"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/61Y1REKFBgC1C6YxQwZA56516gR1zCw-HIaNyP_WV_MnR6Fuofzd8-uWBHzKxZP7mwM",
+      "alt": "Ground News",
+      "name": "Ground News"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/_j_9jVM50j43oII8sejBsK4DkHXxFw_MYUQOcHNjgX7SgJMQiLUsa8BuKWGK_84H_OE",
+      "alt": "iflix",
+      "name": "iflix"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVjyJOS7PN-2Xh37-pXo0aOghZLt45Fa2UBw&s",
+      "alt": "iLoveIMG",
+      "name": "iLoveIMG"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/I5yxs1Pspu1rB3NPfqnoX2NscvfzAW7e3Zq5GGhXcr2g207X9-npiuP48Ys7107M1VvA",
+      "alt": "iLovePDF",
+      "name": "iLovePDF"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/iqiyi.png",
+      "alt": "iQIYI",
+      "name": "iQIYI"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/9CC-I1I2tcXcFJV-OGEfPPrHrKpKx-jR_KQJFMJtDivfJ6eFCleMtXFrIyysIu_2bGLg5sWO=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "Jitter",
+      "name": "Jitter"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJztEc1YalQNx74GGv9upR6MXHYGO4H0ejqg&s",
+      "alt": "Leonardo AI",
+      "name": "Leonardo AI"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4fcdsIUPUgmbvGaP-RC4RbHYdVtoN_fM8aya_8gOXI2BRtClESO-0_jgWTtKtIVmOQKs&usqp=CAU",
+      "alt": "LinkedIn Learning",
+      "name": "LinkedIn Learning"
+    },
+    {
+      "src": "https://media.magnific.com/magnific-favicons/apple-touch-icon.png?w=180&v=2",
+      "alt": "Magnific (Freepik)",
+      "name": "Magnific (Freepik)"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/ikcy-XJG8_oFwVztH9vK3y--_mUcRu5zyco7d4FqugxzSkX9wMo63oBDPLWZnUsYDg",
+      "alt": "Marvel Unlimited",
+      "name": "Marvel Unlimited"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeoBuunz4xK_-2t35N6astSudIfb7Bnr0R6HDcwoqbzmzOcuNpiZdiRFRv&s=10",
+      "alt": "MasterClass",
+      "name": "MasterClass"
+    },
+    {
+      "src": "https://images.saasworthy.com/mentimeter_870_logo_1600681783_e5oqu.png",
+      "alt": "Mentimeter",
+      "name": "Mentimeter"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPMgbHVXJCw0zQzk3DtR607-823YIxR1Zi_Q&s",
+      "alt": "Mermaidchart",
+      "name": "Mermaidchart"
+    },
+    {
+      "src": "https://s3-eu-west-1.amazonaws.com/tpd/logos/5b1e60b2b50df6000112eb83/0x0.png",
+      "alt": "Motion Array",
+      "name": "Motion Array"
+    },
+    {
+      "src": "https://images.mubicdn.net/images/avatars/169655/cache-169655-1620041787/images-large.png?size=800x",
+      "alt": "Mubi",
+      "name": "Mubi"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMRzHPEXnSURkOyU9StcI8BZPOTeqzvcJP_A&s",
+      "alt": "Musicbed",
+      "name": "Musicbed"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/netflix.png",
+      "alt": "Netflix",
+      "name": "Netflix"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRJ_-m9Y994yfZimh_h8Yzn0sMx2IsfVoDIQ&s",
+      "alt": "NotebookLM",
+      "name": "NotebookLM"
+    },
+    {
+      "src": "https://10web.io/wp-content/uploads/2024/08/NoteGPT_logo.jpg",
+      "alt": "NoteGPT",
+      "name": "NoteGPT"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/vy-9s86d-81wk1acsXvAxN1xV5Y-doJdgbskG3GonOerbUwUtvNXk_XSRHoraaXZcX4",
+      "alt": "Notion",
+      "name": "Notion"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9l1bvE2alHZrnR4bmSsbK2KjHemNk_p4Dsf-GVh6-5hFtZgugYYNfQfo0L3CQxZqdLC4&usqp=CAU",
+      "alt": "Pacdora",
+      "name": "Pacdora"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsb2y412xVI5pSI0IiCzqNCF0RA7p-fxjNbg&s",
+      "alt": "Paperpal",
+      "name": "Paperpal"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/6STp0lYx2ctvQ-JZpXA1LeAAZIlq6qN9gpy7swLPlRhmp-hfvZePcBxqwVkqN2BH1g",
+      "alt": "Perplexity",
+      "name": "Perplexity"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/1JMJ518jogwPeaD0pYn2mBu1cRLD0xRi45wNbtTIRvam1_xx-y3KJOjRAx-W9P4Lf0U=s256-rw",
+      "alt": "Picsart",
+      "name": "Picsart"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/3rVZ7Lc7-bxsALDo0nWOcuojR9ISxlhO20KnVM3uP00drxIXXt7ATM0V5-YjfM0pPtA",
+      "alt": "Prezi AI",
+      "name": "Prezi AI"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/primevideo.png",
+      "alt": "Prime Video",
+      "name": "Prime Video"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd_sbW5wMx4hP2Y8wrJkjxjlSbrpy5f1Zgbw&s",
+      "alt": "ProductionCrate",
+      "name": "ProductionCrate"
+    },
+    {
+      "src": "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/szx9duflfycmltpnvcvw",
+      "alt": "Quizlet",
+      "name": "Quizlet"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq1xJnAZa_h6WueAi4mr73cH3K7_pGeTz6Gw&s",
+      "alt": "Rawpixel",
+      "name": "Rawpixel"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/MGRbvVhtCttJ7i2qW3igFxIJSkeoaRln_mIAFAfDgZIFD1yNUQC5mn1a5VqXKzcqRmAuDswu=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "Relume",
+      "name": "Relume"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/ytc/AIdro_kqv2zcFC4lZDK0qSXEbuI1Kcs5wYJoLmONwCf9QX3Qoc4=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "Scholarcy",
+      "name": "Scholarcy"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHo4BcTYbuMiQFR7oUYKZy6zjOgzEORDrzeie96OS1sj3Ur0LpoCPV_ts&s=10",
+      "alt": "Scite",
+      "name": "Scite"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRebq-8lrzgXjVWMvUDApp_q1MhiL5eSyO15VAHMuNaE4RbrPi-f7c2NMc&s=10",
+      "alt": "Scribd",
+      "name": "Scribd"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7TPtYsfoyLxuSORs6sqgApBGYHOx1aZ43ra1DqBNb8BRYz4ciWF4Mg9uR&s=10",
+      "alt": "Semrush",
+      "name": "Semrush"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/VghuZRn0-oLvbaGqptsM-9Qr6Ka7Pmw7lfmu6_UQ56mZS6bsXbET9Uf0wF0FECP8lEM",
+      "alt": "Sider AI",
+      "name": "Sider AI"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/skillshare.png",
+      "alt": "Skillshare",
+      "name": "Skillshare"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/14649/14649063.png",
+      "alt": "Slidesgo",
+      "name": "Slidesgo"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFu2smlszvneX1otpsXxgwhKyPha7Boi8VJg&s",
+      "alt": "Slideshare",
+      "name": "Slideshare"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/W0GcGHbSPEA2VBf8CM-SoRG9yYS2RwxgPM9Q25MmhmU6YzJ2t8lHIAnejL0nL9LvYwMx",
+      "alt": "Speechify",
+      "name": "Speechify"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/20ssDWF3SWEXIFYy8iFwXjomuIqtuHjGc3OxIWqVojIaeo_9_XxUZEDdmm5YPreLucij",
+      "alt": "Studocu",
+      "name": "Studocu"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfDfKMTEJFYyKr-VgVN0z7sdgoINjKnomLLw&s",
+      "alt": "SuperGrok",
+      "name": "SuperGrok"
+    },
+    {
+      "src": "https://cdn-1.webcatalog.io/catalog/superthread/superthread-icon-filled-256.png?v=1719302832255",
+      "alt": "Superthread",
+      "name": "Superthread"
+    },
+    {
+      "src": "https://groupy.id/assets/images/logo/display.png",
+      "alt": "SuperTools",
+      "name": "SuperTools"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXMLBuRJYssEV7zT3Lh8qRl-h2zuHgyEz2HA&s",
+      "alt": "SVGator",
+      "name": "SVGator"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/DKlax_iJQtJOKJlIPDSS7DZpbm9gCkHh3vWgrj8BOMRwDPDVKXdTQf9sV4cRuXSdRA",
+      "alt": "Symbolab",
+      "name": "Symbolab"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/eksxaPfxbTVb6VTl5aj1sXLpKc_N9Z6AZ3_5Oq6JhTXmgEQza-1v58a66p_ID0phE2Zv",
+      "alt": "The Wall Street Journal",
+      "name": "The Wall Street Journal"
+    },
+    {
+      "src": "https://friconix.com/jpg/fi-snsuxx-tryhackme.jpg",
+      "alt": "TryHackMe",
+      "name": "TryHackMe"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/c678Vjj3oQ8UmrDCYzczS6JDcFor4XxHLnc2gAW9Wk_pbE3KEMw1WZk-rTPucPoV7Sg",
+      "alt": "Turbo AI",
+      "name": "Turbo AI"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrf73LGu_mACI2Mc_jdghOV02eXRocoXKo0o3qZHFjGgJMUr5M_v8uwap&s=10",
+      "alt": "Turnitin",
+      "name": "Turnitin"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/dsCkmJE2Fa8IjyXERAcwc5YeQ8_NvbZ4_OI8LgqyjILpXUfS5YhEcnAMajKPrZI-og",
+      "alt": "Udemy",
+      "name": "Udemy"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/648e04d4bbae7004f1b35f15/65de13535268a099387a6f60_vectorizer-ai-icon.png",
+      "alt": "Vectorizer AI",
+      "name": "Vectorizer AI"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_zqaiVJeMxFHsHmHsk8ViZdV3v-nd11cpPw&s",
+      "alt": "Virtual Threads",
+      "name": "Virtual Threads"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/viu.png",
+      "alt": "Viu",
+      "name": "Viu"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/wetv.png",
+      "alt": "WeTV",
+      "name": "WeTV"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/OceHg5bH7EsTRwl-lD7jjV9WM0mpj0oH4YfA-CSbjvfa7NCLQBu5-4cLwNlDvCUp5Q4",
+      "alt": "WolframAlpha",
+      "name": "WolframAlpha"
+    },
+    {
+      "src": "https://earlyshark.com/wp-content/uploads/2024/01/writehuman-logo-1024x1024.png",
+      "alt": "WriteHuman",
+      "name": "WriteHuman"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc",
+      "alt": "YouTube NoAds",
+      "name": "YouTube NoAds"
+    }
+  ],
+  "pro": [
+    {
+      "src": "https://bookface-images.s3.amazonaws.com/logos/62cf2f3df0cbed090432578963a88c5ecff5d8eb.png?1741885621",
+      "alt": "Pro: Anara AI",
+      "name": "Pro: Anara AI"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/mOkjjo5Rzcpk7BsHrsLWnqVadUK1FlLd2-UlQvYkLL4E9A0LpyODNIQinXPfUMjUrbE",
+      "alt": "Pro: Apple Music",
+      "name": "Pro: Apple Music"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRpOM7wu7dsXoaYndVRPI3hBxosICzN6X9w&s",
+      "alt": "Pro: Captions AI",
+      "name": "Pro: Captions AI"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/chatgptplus.png",
+      "alt": "Pro: ChatGPT",
+      "name": "Pro: ChatGPT"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/chatgptpro.png",
+      "alt": "Pro: ChatGPT Pro",
+      "name": "Pro: ChatGPT Pro"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/4S1nfdKsH_1tJodkHrBHimqlCTE6qx6z22zpMyPaMc_Rlr1EdSFDI1I6UEVMnokG5zI",
+      "alt": "Pro: Claude by Merlin",
+      "name": "Pro: Claude by Merlin"
+    },
+    {
+      "src": "https://cdn.prod.website-files.com/653c8107e2b70a34921d24fd/67a672f11fe6c47be600f037_cryptoquant.png",
+      "alt": "Pro: CryptoQuant",
+      "name": "Pro: CryptoQuant"
+    },
+    {
+      "src": "https://static.vecteezy.com/system/resources/previews/055/687/055/non_2x/rectangle-gemini-google-icon-symbol-logo-free-png.png",
+      "alt": "Pro: Gemini AI",
+      "name": "Pro: Gemini AI"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/bvyVXgpxu65YO3PNeVhNM9Y7ao7g7FnnKdoNXcwqO48aOlVvnH_b2O9rcZzgEFHzHtI",
+      "alt": "Pro: HBO Max",
+      "name": "Pro: HBO Max"
+    },
+    {
+      "src": "https://shopallpremium.com/wp-content/uploads/2022/02/HMA-LOG.png",
+      "alt": "Pro: HideMyAss VPN",
+      "name": "Pro: HideMyAss VPN"
+    },
+    {
+      "src": "https://www.humata.ai/favicon.ico",
+      "alt": "Pro: Humata AI",
+      "name": "Pro: Humata AI"
+    },
+    {
+      "src": "https://cdn.iconscout.com/icon/free/png-256/free-iconscout-logo-icon-download-in-svg-png-gif-file-formats--company-pack-logos-icons-4674919.png",
+      "alt": "Pro: IconScout",
+      "name": "Pro: IconScout"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/fJg2QmhVNd-LGxfBzNC6NPeUFY7EjoolG89dVOJ25ieyKpn3r7_ix1q93EFxI_s0RmE",
+      "alt": "Pro: InvestingPro",
+      "name": "Pro: InvestingPro"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjzHV0xQOmnu0xowDdW71mIklQHOJ7RjdzHg&s",
+      "alt": "Pro: Jenni AI",
+      "name": "Pro: Jenni AI"
+    },
+    {
+      "src": "https://kahoot.com/files/2020/11/Kahoot-1024-rounded.png",
+      "alt": "Pro: Kahoot!",
+      "name": "Pro: Kahoot!"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ99uOEL4OLsg4NccVL7KVwAR15E8NS58z20g&s",
+      "alt": "Pro: KodeKloud",
+      "name": "Pro: KodeKloud"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJztEc1YalQNx74GGv9upR6MXHYGO4H0ejqg&s",
+      "alt": "Pro: Leonardo AI",
+      "name": "Pro: Leonardo AI"
+    },
+    {
+      "src": "https://delivery.marketmonkeyterminal.com/MMT_LOGO_500px_2d013ad55c.png",
+      "alt": "Pro: MarketMonkey",
+      "name": "Pro: MarketMonkey"
+    },
+    {
+      "src": "https://pbs.twimg.com/profile_images/1646549566052003841/Z5yj3RDi_400x400.jpg",
+      "alt": "Pro: Mathacademy",
+      "name": "Pro: Mathacademy"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/8XoSS1Jn3qHfm8cB4gq6YMQAWv_PIRCUtH2r5RiDq0s05QM47JtwEjs6V_aFh_SmOZ0",
+      "alt": "Pro: Merlin AI",
+      "name": "Pro: Merlin AI"
+    },
+    {
+      "src": "https://asset.brandfetch.io/idIfIyyq5-/id2DzZkAtw.png",
+      "alt": "Pro: Mobbin",
+      "name": "Pro: Mobbin"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/netflix.png",
+      "alt": "Pro: Netflix",
+      "name": "Pro: Netflix"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRJ_-m9Y994yfZimh_h8Yzn0sMx2IsfVoDIQ&s",
+      "alt": "Pro: NotebookLM",
+      "name": "Pro: NotebookLM"
+    },
+    {
+      "src": "https://cms-resources.prd.timeshighereducation.com/sites/default/files/styles/large/public/2023-03/Perlego-logo_square_1.jpg?itok=pWI0VoCN",
+      "alt": "Pro: Perlego",
+      "name": "Pro: Perlego"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/1JMJ518jogwPeaD0pYn2mBu1cRLD0xRi45wNbtTIRvam1_xx-y3KJOjRAx-W9P4Lf0U=s256-rw",
+      "alt": "Pro: Picsart",
+      "name": "Pro: Picsart"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/0654HX7dcGrIxNgjROl2__z2RIW8nkDVZMqm8NiR5p9O0OM-OVNTRG0H8-0fjC8lj-0",
+      "alt": "Pro: Placeit",
+      "name": "Pro: Placeit"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/1/13/Planner_5D_logo.png",
+      "alt": "Pro: Planner5D",
+      "name": "Pro: Planner5D"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShIis3kt_oWq-utGwqWJnKHIbqLEaXS-RTeg&s",
+      "alt": "Pro: Pngtree",
+      "name": "Pro: Pngtree"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZtqcA6rvxqQHSb14wu157jMKqBtXRNJ5-1lcBbxf4JzQt7vwDhlmbpnnH&s=10",
+      "alt": "Pro: QuillBot",
+      "name": "Pro: QuillBot"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHo4BcTYbuMiQFR7oUYKZy6zjOgzEORDrzeie96OS1sj3Ur0LpoCPV_ts&s=10",
+      "alt": "Pro: Scite",
+      "name": "Pro: Scite"
+    },
+    {
+      "src": "https://media.licdn.com/dms/image/v2/D560BAQGFNn9uuWNKvA/company-logo_200_200/B56ZWE4DUHGUAU-/0/1741691041788/storytribeapp_logo?e=2147483647&v=beta&t=3qm4zJ4TSorw5yxfeP9WtXnDj_DKgiqhVZeGH42wT7g",
+      "alt": "Pro: StoryTribe",
+      "name": "Pro: StoryTribe"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfDfKMTEJFYyKr-VgVN0z7sdgoINjKnomLLw&s",
+      "alt": "Pro: SuperGrok",
+      "name": "Pro: SuperGrok"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/tradingview.png",
+      "alt": "Pro: TradingView",
+      "name": "Pro: TradingView"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Z.ai_%28company_logo%29.svg/960px-Z.ai_%28company_logo%29.svg.png",
+      "alt": "Pro: z.ai API",
+      "name": "Pro: z.ai API"
+    }
+  ],
+  "phantom": [
+    {
+      "src": "https://pbs.twimg.com/profile_images/1990585614279049216/-Zz6T2nk_400x400.png",
+      "alt": "The Phantom: Antigravity Ultra",
+      "name": "The Phantom: Antigravity Ultra"
+    },
+    {
+      "src": "https://yt3.googleusercontent.com/73ZtiE03yy6YRPQWBSEmau0qX2OhjO8l9HVuQNVBR89z8FLQwIJdVoZZu8Z2BnC6mI2JuDSo=s900-c-k-c0x00ffffff-no-rj",
+      "alt": "The Phantom: Artlist",
+      "name": "The Phantom: Artlist"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/JC3HW-ps59VAEU3vuJoi3I5XB_IQ9ISuILLudUY9uLSW7eKfqtXitrB-fF865rV4TQ",
+      "alt": "The Phantom: Canva",
+      "name": "The Phantom: Canva"
+    },
+    {
+      "src": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxtHdRB6xk71KqOPxE23.XPiUcBp9_h5.Va3lapJy.K9tACxvjL4_WF3lJCLozay.Kx6V1mfBFaOOF4V5Rx4RHLY-&format=source",
+      "alt": "The Phantom: CapCut",
+      "name": "The Phantom: CapCut"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/chatgptplus.png",
+      "alt": "The Phantom: ChatGPT",
+      "name": "The Phantom: ChatGPT"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/chatgptpro.png",
+      "alt": "The Phantom: ChatGPT Pro",
+      "name": "The Phantom: ChatGPT Pro"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuJ8v1EICNl78zLPEfHkAimzusUBWT7z2nTw&s",
+      "alt": "The Phantom: Chutes",
+      "name": "The Phantom: Chutes"
+    },
+    {
+      "src": "https://store-images.s-microsoft.com/image/apps.44278.14314868180609929.f8c49912-5781-408f-8963-10487f629f2d.8ac35a1c-f121-477f-9d70-d37926d2aeb5?h=210",
+      "alt": "The Phantom: Codex Pro",
+      "name": "The Phantom: Codex Pro"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/d02XzlUDL2qUXqoJ4y8UTp7qgDwMf76PLacIDAvRifgkVtqIbFF_G7m5Bt34ahxxmxE",
+      "alt": "The Phantom: Courtside",
+      "name": "The Phantom: Courtside"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/5wVn4qP4EIQV4BU2nzx2oDGeyDFU3Id2zlchCDNpqEGzyZssojerAql5ybq5RS59Ve0y",
+      "alt": "The Phantom: Disney+",
+      "name": "The Phantom: Disney+"
+    },
+    {
+      "src": "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHM0OYfiFeMI2p9MWie0CvL99U4GA1gf6_kayTt_kBblFwHwo8BW8JXlqfnYxKPmmBRWdMmQ0.7MunNBtlCcfdJQsqb5IzAUKHDxHtqdnjRqk95mRHlRtBSWcbYmbGy1sf8Hd0YieCaL2wTePeXmvxnU-&format=source",
+      "alt": "The Phantom: ExpressVPN",
+      "name": "The Phantom: ExpressVPN"
+    },
+    {
+      "src": "https://vectorseek.com/wp-content/uploads/2025/09/Google-flow-Logo-PNG-SVG-Vector-1.png",
+      "alt": "The Phantom: Flow Ultra",
+      "name": "The Phantom: Flow Ultra"
+    },
+    {
+      "src": "https://store-images.s-microsoft.com/image/apps.53673.13800228740496758.b926c1b0-f31a-4a9b-b1b3-88dd15f27137.a0a38389-643f-48ed-9379-92a9fb5a7c94",
+      "alt": "The Phantom: Gamma",
+      "name": "The Phantom: Gamma"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU",
+      "alt": "The Phantom: GitHub",
+      "name": "The Phantom: GitHub"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/bvyVXgpxu65YO3PNeVhNM9Y7ao7g7FnnKdoNXcwqO48aOlVvnH_b2O9rcZzgEFHzHtI",
+      "alt": "The Phantom: HBO Max",
+      "name": "The Phantom: HBO Max"
+    },
+    {
+      "src": "https://www.humata.ai/favicon.ico",
+      "alt": "The Phantom: Humata AI",
+      "name": "The Phantom: Humata AI"
+    },
+    {
+      "src": "https://cdn.iconscout.com/icon/free/png-256/free-iconscout-logo-icon-download-in-svg-png-gif-file-formats--company-pack-logos-icons-4674919.png",
+      "alt": "The Phantom: IconScout",
+      "name": "The Phantom: IconScout"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/fJg2QmhVNd-LGxfBzNC6NPeUFY7EjoolG89dVOJ25ieyKpn3r7_ix1q93EFxI_s0RmE",
+      "alt": "The Phantom: InvestingPro",
+      "name": "The Phantom: InvestingPro"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJztEc1YalQNx74GGv9upR6MXHYGO4H0ejqg&s",
+      "alt": "The Phantom: Leonardo AI",
+      "name": "The Phantom: Leonardo AI"
+    },
+    {
+      "src": "https://images.saasworthy.com/lokibuild_52516_logo_1766556991_ib96m.jpg",
+      "alt": "The Phantom: Loki.build",
+      "name": "The Phantom: Loki.build"
+    },
+    {
+      "src": "https://delivery.marketmonkeyterminal.com/MMT_LOGO_500px_2d013ad55c.png",
+      "alt": "The Phantom: MarketMonkey",
+      "name": "The Phantom: MarketMonkey"
+    },
+    {
+      "src": "https://cdn.brandfetch.io/maxai.co?c=1idGuZjjNQsbnvHtiGk",
+      "alt": "The Phantom: MaxAI",
+      "name": "The Phantom: MaxAI"
+    },
+    {
+      "src": "https://miro.medium.com/v2/resize:fill:128:128/1*sHhtYhaCe2Uc3IU0IgKwIQ.png",
+      "alt": "The Phantom: Medium",
+      "name": "The Phantom: Medium"
+    },
+    {
+      "src": "https://avatars.githubusercontent.com/u/192945411?v=4",
+      "alt": "The Phantom: MiniMax",
+      "name": "The Phantom: MiniMax"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/netflix.png",
+      "alt": "The Phantom: Netflix",
+      "name": "The Phantom: Netflix"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/oi4GE8ulxHp4Y2xVzKu_WAMrgE4Jj4Kbdd7hAWLeoZTsMtC5bYTd2xcYhlvMk69pTFY",
+      "alt": "The Phantom: Paramount+",
+      "name": "The Phantom: Paramount+"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/6STp0lYx2ctvQ-JZpXA1LeAAZIlq6qN9gpy7swLPlRhmp-hfvZePcBxqwVkqN2BH1g",
+      "alt": "The Phantom: Perplexity",
+      "name": "The Phantom: Perplexity"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/1JMJ518jogwPeaD0pYn2mBu1cRLD0xRi45wNbtTIRvam1_xx-y3KJOjRAx-W9P4Lf0U=s256-rw",
+      "alt": "The Phantom: Picsart",
+      "name": "The Phantom: Picsart"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/0654HX7dcGrIxNgjROl2__z2RIW8nkDVZMqm8NiR5p9O0OM-OVNTRG0H8-0fjC8lj-0",
+      "alt": "The Phantom: Placeit",
+      "name": "The Phantom: Placeit"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfDfKMTEJFYyKr-VgVN0z7sdgoINjKnomLLw&s",
+      "alt": "The Phantom: SuperGrok",
+      "name": "The Phantom: SuperGrok"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/dQRKhi30KpzG3gww3TdVLzyIAVuOAWylnAcgnEUxqfpm2A8dEt2sgApVvtKAy-DO8aI=w240-h480-rw",
+      "alt": "The Phantom: SuperGrok Heavy",
+      "name": "The Phantom: SuperGrok Heavy"
+    },
+    {
+      "src": "https://groupy.id/assets/images/services/tradingview.png",
+      "alt": "The Phantom: TradingView",
+      "name": "The Phantom: TradingView"
+    },
+    {
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIrf73LGu_mACI2Mc_jdghOV02eXRocoXKo0o3qZHFjGgJMUr5M_v8uwap&s=10",
+      "alt": "The Phantom: Turnitin",
+      "name": "The Phantom: Turnitin"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Z.ai_%28company_logo%29.svg/960px-Z.ai_%28company_logo%29.svg.png",
+      "alt": "The Phantom: z.ai",
+      "name": "The Phantom: z.ai"
+    }
+  ]
+}
