@@ -9,16 +9,12 @@ import styles from "./page.module.css";
 
 // URL GitHub repository Simply
 const GITHUB_REPO = "https://github.com/StevinRAD/Simply";
-const GITHUB_RAW_BASE = `${GITHUB_REPO}/archive/refs/heads/main.zip`;
 
-// URL download langsung per folder extension via GitHub
-// User download repo ZIP lalu ambil folder yang dibutuhkan
+// URL download ZIP seluruh repo dari branch master
+// Setelah extract, ambil folder extensions/guard dan extensions/main
 const EXTENSION_DOWNLOAD_URLS = {
-  guard: `${GITHUB_REPO}/archive/refs/heads/main.zip`,
-  main: `${GITHUB_REPO}/archive/refs/heads/main.zip`,
-  // Setelah ada release tag, bisa diganti ke:
-  // guard: `${GITHUB_REPO}/releases/latest/download/simply-guard.zip`,
-  // main: `${GITHUB_REPO}/releases/latest/download/simply-main.zip`,
+  guard: `${GITHUB_REPO}/archive/refs/heads/master.zip`,
+  main: `${GITHUB_REPO}/archive/refs/heads/master.zip`,
 };
 
 export default function DownloadsPage() {

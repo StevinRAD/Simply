@@ -12,7 +12,7 @@
     "scripting"
   ],
   "host_permissions": [
-    "http://localhost:3000/*",
+    "https://simply-tau.vercel.app/*",
     "*://*.netflix.com/*",
     "*://*.spotify.com/*",
     "*://*.youtube.com/*",
