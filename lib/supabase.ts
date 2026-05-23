@@ -62,6 +62,7 @@ export type Service = {
   slug: string;
   group_name: "streaming" | "ai" | "design" | "productivity" | "education" | "social" | "other";
   domain: string;
+  check_url: string | null;
   description: string | null;
   icon_url: string | null;
   cookies_json: Record<string, unknown> | null;

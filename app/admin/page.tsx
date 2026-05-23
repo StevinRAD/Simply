@@ -177,7 +177,12 @@ const copy: Record<Language, Record<string, string>> = {
  * Returns null if no specific recommendation.
  */
 function getRecommendedCheckUrl(domain: string): string | null {
-  const domainLower = domain.toLowerCase().replace(/^www\./, '');
+  // Strip protocol, www prefix, trailing slashes, and paths to extract bare domain
+  const domainLower = domain.toLowerCase()
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .replace(/\/.*$/, '')
+    .trim();
   
   const recommendations: Record<string, string> = {
     // Streaming Services
@@ -732,6 +737,7 @@ export default function AdminPage() {
       setNewServiceDomain("");
       setNewServiceDescription("");
       setNewServiceCheckUrl("");
+      setShowAddForm(false);
       setStats(prev => ({ ...prev, services: prev.services + 1 }));
       setServiceSuccess(language === "id" ? "Layanan berhasil ditambahkan!" : "Service added successfully!");
       setTimeout(() => setServiceSuccess(null), 3000);
@@ -759,6 +765,7 @@ export default function AdminPage() {
           setNewServiceDomain("");
           setNewServiceDescription("");
           setNewServiceCheckUrl("");
+          setShowAddForm(false);
           setStats(prev => ({ ...prev, services: prev.services + 1 }));
           setServiceSuccess(language === "id" ? "Layanan berhasil ditambahkan!" : "Service added successfully!");
           setTimeout(() => setServiceSuccess(null), 3000);
@@ -820,8 +827,8 @@ export default function AdminPage() {
       const service = services.find(s => s.id === serviceId);
       if (service) {
         try {
-          await updateService(serviceId, { 
-            status: service.status, 
+          await updateService(serviceId, {
+            status: service.status,
             cookies_json: service.cookies_json,
             cookies_netscape: service.cookies_netscape,
             cookie_format: service.cookie_format
@@ -832,6 +839,14 @@ export default function AdminPage() {
       }
     }
     
+    // Auto-collapse all saved services
+    setExpandedServices(prev => {
+      const next = new Set(prev);
+      for (const serviceId of changedServices) {
+        next.delete(serviceId);
+      }
+      return next;
+    });
     setChangedServices(new Set());
   }
 
@@ -889,6 +904,12 @@ export default function AdminPage() {
     setSavingCookieId(id);
     await handleCookiesUpdate(id, content, format);
     setSavingCookieId(null);
+    // Auto-collapse service card after saving
+    setExpandedServices(prev => {
+      const next = new Set(prev);
+      next.delete(id);
+      return next;
+    });
   }
 
   // ── Helper: test cookies validity via API route ──
