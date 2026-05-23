@@ -248,32 +248,17 @@ export default function SettingsPage() {
               />
             </div>
 
-            <div className={styles.formRow}>
-              <div className={styles.formGroup}>
-                <label>
-                  <Shield size={16} />
-                  {text.role}
-                </label>
-                <input
-                  type="text"
-                  value={profile?.role || "user"}
-                  disabled
-                  className={`${styles.input} ${styles.disabled}`}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label>
-                  <CheckCircle2 size={16} />
-                  {text.plan}
-                </label>
-                <input
-                  type="text"
-                  value={profile?.plan?.toUpperCase() || "FREE"}
-                  disabled
-                  className={`${styles.input} ${styles.disabled}`}
-                />
-              </div>
+            <div className={styles.formGroup}>
+              <label>
+                <CheckCircle2 size={16} />
+                {text.plan}
+              </label>
+              <input
+                type="text"
+                value={profile?.plan?.toUpperCase() || "FREE"}
+                disabled
+                className={`${styles.input} ${styles.disabled}`}
+              />
             </div>
 
             <button

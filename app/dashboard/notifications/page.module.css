@@ -241,6 +241,50 @@
   color: #e53e3e;
 }
 
+/* ── New CSS classes for updated notifications page ── */
+.unreadBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  background: #e53e3e;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e53e3e;
+  flex-shrink: 0;
+}
+
+.notifTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.sectionLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.notificationCard {
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .page {
     padding: 1rem;

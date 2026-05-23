@@ -31,9 +31,15 @@ const copy = {
     daysLeft: "hari tersisa",
     comparePlans: "Bandingkan Plan",
     features: "Fitur",
-    redeemVoucher: "Redeem Voucher untuk Upgrade",
+    redeemVoucher: "Upgrade Plan",
     popular: "Populer",
     current: "Plan Saat Ini",
+    subscribed: "Berlangganan",
+    notSubscribed: "Belum Berlangganan",
+    subscribedDesc: "Anda sedang berlangganan. Nikmati akses ke layanan sesuai plan Anda.",
+    notSubscribedDesc: "Anda menggunakan plan gratis. Gunakan voucher di Dashboard untuk mengaktifkan langganan.",
+    freeNote: "Plan Free tidak dapat mengakses layanan apapun.",
+    paidNote: "Plan berbayar memberikan akses ke layanan sesuai level plan Anda.",
   },
   en: {
     title: "Plan Overview",
@@ -43,9 +49,15 @@ const copy = {
     daysLeft: "days left",
     comparePlans: "Compare Plans",
     features: "Features",
-    redeemVoucher: "Redeem Voucher to Upgrade",
+    redeemVoucher: "Upgrade Plan",
     popular: "Popular",
     current: "Current Plan",
+    subscribed: "Subscribed",
+    notSubscribed: "Not Subscribed",
+    subscribedDesc: "You are subscribed. Enjoy access to services based on your plan.",
+    notSubscribedDesc: "You are on the free plan. Use a voucher on the Dashboard to activate your subscription.",
+    freeNote: "Free plan cannot access any services.",
+    paidNote: "Paid plans give you access to services based on your plan level.",
   },
 };
 
@@ -151,12 +163,26 @@ export default function PlanPage() {
               <span className={`${styles.planBadge} ${styles[currentPlan]}`}>
                 {planData[currentPlan as keyof typeof planData].name.toUpperCase()}
               </span>
+              {/* Status berlangganan */}
+              {currentPlan !== "free" ? (
+                <span className={styles.subStatusBadge}>
+                  ✓ {text.subscribed}
+                </span>
+              ) : (
+                <span className={styles.subStatusBadgeFree}>
+                  {text.notSubscribed}
+                </span>
+              )}
               {subscription && (
                 <p className={styles.expiryInfo}>
                   {days} {text.daysLeft}
                 </p>
               )}
             </div>
+          </div>
+          {/* Penjelasan status */}
+          <div className={currentPlan !== "free" ? styles.planInfoBoxSubscribed : styles.planInfoBoxFree}>
+            {currentPlan !== "free" ? text.subscribedDesc : text.notSubscribedDesc}
           </div>
         </section>
 
@@ -199,11 +225,6 @@ export default function PlanPage() {
                     ))}
                   </ul>
 
-                  {!isCurrent && (
-                    <Link href="/dashboard" className={styles.upgradeBtn}>
-                      {text.redeemVoucher}
-                    </Link>
-                  )}
                 </div>
               );
             })}

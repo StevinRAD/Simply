@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { Suspense, useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   AlertCircle,
   Bell,
@@ -38,6 +38,13 @@ import {
   getActiveSubscription,
   getSubscriptionHistory,
   daysRemaining,
+  logActivity,
+  getStoredSessionToken,
+  checkSessionValid,
+  sendSessionHeartbeat,
+  clearStoredSessionToken,
+  invalidateSession,
+  registerSession,
   type Profile,
   type Service,
   type Subscription,
@@ -60,15 +67,27 @@ const copy: Record<Language, Record<string, string>> = {
     free: "Gratis",
     expired: "Kedaluwarsa",
     noSub: "Belum berlangganan",
+    subscribed: "Berlangganan",
     subExpires: "Berakhir",
     daysLeft: "hari tersisa",
     subHistory: "Riwayat Langganan",
     noHistory: "Belum ada riwayat langganan.",
+    sourceVoucher: "Redeem Voucher",
+    sourceAdmin: "Diaktifkan Admin",
+    expiredBackToFree: "Kadaluarsa → kembali ke Free",
+    durationLabel: "Durasi",
+    days: "hari",
     voucherTitle: "Redeem Voucher",
     voucherPlaceholder: "Masukkan kode voucher",
     voucherBtn: "Redeem",
-    voucherSuccess: "Voucher berhasil digunakan! Plan kamu sudah diperbarui.",
+    voucherSuccess: "🎉 Voucher berhasil digunakan! Plan kamu sudah diperbarui ke",
     voucherError: "Voucher tidak valid atau sudah digunakan.",
+    voucherNotFound: "Kode voucher tidak ditemukan.",
+    voucherQuotaExceeded: "Voucher sudah habis kuotanya (semua slot terpakai).",
+    voucherExpired: "Voucher sudah kedaluwarsa.",
+    voucherAlreadyRedeemed: "Kamu sudah pernah menggunakan voucher ini.",
+    voucherRedemptionFailed: "Gagal memproses voucher. Coba lagi.",
+    voucherSubscriptionFailed: "Voucher berhasil tapi gagal membuat langganan. Hubungi admin.",
     services: "Layanan Tersedia",
     noServices: "Belum ada layanan tersedia.",
     accessService: "Akses",
@@ -79,6 +98,8 @@ const copy: Record<Language, Record<string, string>> = {
     upgradeTitle: "Upgrade Plan",
     upgradeDesc: "Dapatkan akses ke lebih banyak layanan premium.",
     upgradeBtn: "Lihat Plan",
+    freeDesc: "Anda menggunakan plan gratis. Redeem voucher untuk upgrade dan akses semua layanan.",
+    subscribedDesc: "Anda sedang berlangganan. Nikmati akses ke layanan sesuai plan Anda.",
     streaming: "Streaming",
     ai: "AI & Asisten",
     design: "Desain",
@@ -110,15 +131,27 @@ const copy: Record<Language, Record<string, string>> = {
     free: "Free",
     expired: "Expired",
     noSub: "No active subscription",
+    subscribed: "Subscribed",
     subExpires: "Expires",
     daysLeft: "days left",
     subHistory: "Subscription History",
     noHistory: "No subscription history yet.",
+    sourceVoucher: "Voucher Redeem",
+    sourceAdmin: "Activated by Admin",
+    expiredBackToFree: "Expired → reverted to Free",
+    durationLabel: "Duration",
+    days: "days",
     voucherTitle: "Redeem Voucher",
     voucherPlaceholder: "Enter voucher code",
     voucherBtn: "Redeem",
-    voucherSuccess: "Voucher redeemed! Your plan has been updated.",
+    voucherSuccess: "🎉 Voucher redeemed! Your plan has been updated to",
     voucherError: "Invalid or already used voucher.",
+    voucherNotFound: "Voucher code not found.",
+    voucherQuotaExceeded: "Voucher quota exhausted (all slots used).",
+    voucherExpired: "This voucher has expired.",
+    voucherAlreadyRedeemed: "You have already used this voucher.",
+    voucherRedemptionFailed: "Failed to process voucher. Please try again.",
+    voucherSubscriptionFailed: "Voucher accepted but subscription creation failed. Contact admin.",
     services: "Available Services",
     noServices: "No services available yet.",
     accessService: "Access",
@@ -129,6 +162,8 @@ const copy: Record<Language, Record<string, string>> = {
     upgradeTitle: "Upgrade Plan",
     upgradeDesc: "Get access to more premium services.",
     upgradeBtn: "View Plans",
+    freeDesc: "You are on the free plan. Redeem a voucher to upgrade and access all services.",
+    subscribedDesc: "You are subscribed. Enjoy access to services based on your plan.",
     streaming: "Streaming",
     ai: "AI & Assistant",
     design: "Design",
@@ -185,10 +220,11 @@ const quickLinks = [
 ];
 
 // ── Component ────────────────────────────────────────────────
-export default function DashboardPage() {
+function DashboardPageInner() {
   const { language, mounted } = useLanguage();
   const text = copy[language];
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [profile, setProfile]           = useState<Profile | null>(null);
   const [services, setServices]         = useState<Service[]>([]);
@@ -200,12 +236,54 @@ export default function DashboardPage() {
   const [voucherCode, setVoucherCode]   = useState("");
   const [voucherMsg, setVoucherMsg]     = useState<{ type: "success" | "error"; text: string } | null>(null);
   const [redeeming, setRedeeming]       = useState(false);
+  const [sessionKicked, setSessionKicked] = useState(false);
+
+  // ── Session heartbeat & kicked detection ──────────────────
+  useEffect(() => {
+    const token = getStoredSessionToken();
+    if (!token) return;
+
+    // Cek session setiap 30 detik
+    const interval = setInterval(async () => {
+      const { valid } = await checkSessionValid(token);
+      if (!valid) {
+        clearStoredSessionToken();
+        setSessionKicked(true);
+        // Auto redirect ke login setelah 3 detik
+        setTimeout(() => {
+          router.push("/login?reason=session_kicked");
+        }, 3000);
+        clearInterval(interval);
+      } else {
+        await sendSessionHeartbeat(token);
+      }
+    }, 30_000);
+
+    // Cek langsung saat mount
+    (async () => {
+      const { valid } = await checkSessionValid(token);
+      if (!valid) {
+        clearStoredSessionToken();
+        setSessionKicked(true);
+        setTimeout(() => router.push("/login?reason=session_kicked"), 3000);
+      }
+    })();
+
+    return () => clearInterval(interval);
+  }, [router]);
 
   useEffect(() => {
     async function load() {
       const p = await getProfile();
       if (!p) { router.push("/login"); return; }
       setProfile(p);
+
+      // Jika dari Google OAuth callback, register session baru
+      if (searchParams.get("register_session") === "1") {
+        await registerSession();
+        // Bersihkan query param dari URL
+        router.replace("/dashboard");
+      }
 
       const [s, sub, hist] = await Promise.all([
         getServices(),
@@ -218,25 +296,57 @@ export default function DashboardPage() {
       setLoading(false);
     }
     load();
-  }, [router]);
+  }, [router, searchParams]);
 
   async function handleRedeem(e: FormEvent) {
     e.preventDefault();
     if (!voucherCode.trim()) return;
     setRedeeming(true);
     setVoucherMsg(null);
-    const { error } = await redeemVoucher(voucherCode);
-    if (error) {
-      setVoucherMsg({ type: "error", text: text.voucherError });
+
+    const result = await redeemVoucher(voucherCode);
+
+    if (!result.success) {
+      // Map error codes ke pesan yang user-friendly
+      const errorMessages: Record<string, string> = {
+        not_authenticated: text.voucherError,
+        fetch_error: text.voucherError,
+        not_found: text.voucherNotFound,
+        quota_exceeded: text.voucherQuotaExceeded,
+        expired: text.voucherExpired,
+        already_redeemed: text.voucherAlreadyRedeemed,
+        redemption_failed: text.voucherRedemptionFailed,
+        subscription_failed: text.voucherSubscriptionFailed,
+      };
+      const msg = errorMessages[result.error] || text.voucherError;
+      setVoucherMsg({ type: "error", text: msg });
+      await logActivity("redeem_voucher_failed", "subscription",
+        `Gagal redeem voucher: ${voucherCode.trim().toUpperCase()} — ${result.error}`,
+        { voucher_code: voucherCode.trim().toUpperCase(), error: result.error }
+      );
     } else {
-      setVoucherMsg({ type: "success", text: text.voucherSuccess });
+      // Sukses! Tampilkan notifikasi dengan info plan baru
+      const planName = result.plan.toUpperCase();
+      const expiryDate = new Date(result.expiresAt).toLocaleDateString(
+        language === "id" ? "id-ID" : "en-US",
+        { day: "2-digit", month: "long", year: "numeric" }
+      );
+      const successMsg = `${text.voucherSuccess} ${planName}! (${language === "id" ? "Berlaku sampai" : "Valid until"} ${expiryDate})`;
+      setVoucherMsg({ type: "success", text: successMsg });
+
       // Refresh profile & subscription
       const [p, sub, hist] = await Promise.all([
         getProfile(),
         getActiveSubscription(),
         getSubscriptionHistory(),
       ]);
-      if (p) setProfile(p);
+      if (p) {
+        setProfile(p);
+        await logActivity("redeem_voucher", "subscription",
+          `Berhasil redeem voucher ${result.voucher.code}, plan diperbarui ke ${p.plan}`,
+          { voucher_code: result.voucher.code, new_plan: p.plan, expires_at: result.expiresAt }
+        );
+      }
       setSubscription(sub);
       setSubHistory(hist);
     }
@@ -245,6 +355,9 @@ export default function DashboardPage() {
   }
 
   async function handleLogout() {
+    const token = getStoredSessionToken();
+    if (token) await invalidateSession(token);
+    await logActivity("logout", "auth", "User logout");
     await signOut();
     router.push("/login");
   }
@@ -265,6 +378,28 @@ export default function DashboardPage() {
       <main className={styles.page}>
         <div className={styles.loadingState}>
           <Loader2 size={32} className="spin" />
+        </div>
+      </main>
+    );
+  }
+
+  // Session kicked overlay
+  if (sessionKicked) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.loadingState} style={{ flexDirection: "column", gap: "1rem", textAlign: "center" }}>
+          <AlertCircle size={40} style={{ color: "#f87171" }} />
+          <div>
+            <p style={{ color: "#fff", fontWeight: 600, fontSize: "1.1rem", margin: "0 0 0.5rem" }}>
+              {language === "id" ? "Sesi Berakhir" : "Session Ended"}
+            </p>
+            <p style={{ color: "#888", fontSize: "0.85rem", margin: 0 }}>
+              {language === "id"
+                ? "Akun kamu masuk dari perangkat lain. Kamu akan diarahkan ke halaman login..."
+                : "Your account was signed in from another device. Redirecting to login..."}
+            </p>
+          </div>
+          <Loader2 size={20} className="spin" style={{ color: "#6366f1" }} />
         </div>
       </main>
     );
@@ -336,19 +471,25 @@ export default function DashboardPage() {
           <div>
             <h1>{text.welcome} <span className={styles.headerName}>{profile?.full_name || profile?.email?.split("@")[0]}</span></h1>
             <div className={styles.badges}>
-              <span className={`${styles.planBadge} ${planColors[profile?.plan || "free"]}`}>
-                {text.plan}: {profile?.plan?.toUpperCase()}
-              </span>
-              {subscription ? (
-                <span className={styles.statusBadge}>
-                  <ShieldCheck size={14} />{text.active} · {days} {text.daysLeft}
+                <span className={`${styles.planBadge} ${planColors[profile?.plan || "free"]}`}>
+                  {text.plan}: {profile?.plan?.toUpperCase()}
                 </span>
-              ) : (
-                <span className={styles.statusBadgeFree}>
-                  <Zap size={14} />{text.noSub}
-                </span>
-              )}
-            </div>
+                {profile?.plan && profile.plan !== "free" ? (
+                  subscription ? (
+                    <span className={styles.statusBadge}>
+                      <ShieldCheck size={14} />{text.subscribed} · {days} {text.daysLeft}
+                    </span>
+                  ) : (
+                    <span className={styles.statusBadge}>
+                      <ShieldCheck size={14} />{text.subscribed}
+                    </span>
+                  )
+                ) : (
+                  <span className={styles.statusBadgeFree}>
+                    <Zap size={14} />{text.noSub}
+                  </span>
+                )}
+              </div>
           </div>
           <LanguageSwitcher />
         </header>
@@ -357,34 +498,54 @@ export default function DashboardPage() {
         {activeTab === "overview" && (
           <>
             {/* Subscription status card */}
-            <section className={`${styles.subCard} stagger-1`}>
-              {subscription ? (
-                <div className={styles.subActive}>
-                  <div className={styles.subIcon}><ShieldCheck size={24} /></div>
-                  <div className={styles.subInfo}>
-                    <span className={styles.subPlan}>{subscription.plan.toUpperCase()}</span>
-                    <span className={styles.subExpiry}>
-                      <CalendarDays size={14} />
-                      {text.subExpires}: {new Date(subscription.expires_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US", { day: "numeric", month: "long", year: "numeric" })}
-                    </span>
-                    <div className={styles.progressBar}>
-                      <div
-                        className={styles.progressFill}
-                        style={{ width: `${Math.min(100, (days / 30) * 100)}%` }}
-                      />
-                    </div>
-                    <span className={styles.daysLeft}>{days} {text.daysLeft}</span>
-                  </div>
-                </div>
-              ) : (
-                <div className={styles.subEmpty}>
-                  <div className={styles.subEmptyIcon}><Ticket size={28} /></div>
-                  <div>
-                    <p className={styles.subEmptyTitle}>{text.noSub}</p>
-                    <p className={styles.subEmptyDesc}>{text.upgradeDesc}</p>
-                  </div>
-                  <button className={styles.upgradeBtn} onClick={() => setActiveTab("subscription")}>
-                    {text.upgradeBtn} <ChevronRight size={16} />
+                <section className={`${styles.subCard} stagger-1`}>
+                  {profile?.plan && profile.plan !== "free" ? (
+                    /* ── User berlangganan (starter / plus / max) ── */
+                    subscription ? (
+                      <div className={styles.subActive}>
+                        <div className={styles.subIcon}><ShieldCheck size={24} /></div>
+                        <div className={styles.subInfo}>
+                          <span className={styles.subPlan}>{subscription.plan.toUpperCase()}</span>
+                          <span className={styles.subStatusLabel}>
+                            <CheckCircle2 size={14} />{text.subscribed}
+                          </span>
+                          <span className={styles.subExpiry}>
+                            <CalendarDays size={14} />
+                            {text.subExpires}: {new Date(subscription.expires_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US", { day: "numeric", month: "long", year: "numeric" })}
+                          </span>
+                          <div className={styles.progressBar}>
+                            <div
+                              className={styles.progressFill}
+                              style={{ width: `${Math.min(100, (days / 30) * 100)}%` }}
+                            />
+                          </div>
+                          <span className={styles.daysLeft}>{days} {text.daysLeft}</span>
+                          <p className={styles.subInfoDesc}>{text.subscribedDesc}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      /* Plan berbayar tapi tidak ada record subscription aktif */
+                      <div className={styles.subActive}>
+                        <div className={styles.subIcon}><ShieldCheck size={24} /></div>
+                        <div className={styles.subInfo}>
+                          <span className={styles.subPlan}>{profile.plan.toUpperCase()}</span>
+                          <span className={styles.subStatusLabel}>
+                            <CheckCircle2 size={14} />{text.subscribed}
+                          </span>
+                          <p className={styles.subInfoDesc}>{text.subscribedDesc}</p>
+                        </div>
+                      </div>
+                    )
+                  ) : (
+                    /* ── User FREE — belum berlangganan ── */
+                    <div className={styles.subEmpty}>
+                      <div className={styles.subEmptyIcon}><Ticket size={28} /></div>
+                      <div>
+                        <p className={styles.subEmptyTitle}>{text.noSub}</p>
+                        <p className={styles.subEmptyDesc}>{text.freeDesc}</p>
+                      </div>
+                      <button className={styles.upgradeBtn} onClick={() => setActiveTab("subscription")}>
+                        {text.upgradeBtn} <ChevronRight size={16} />
                   </button>
                 </div>
               )}
@@ -393,6 +554,28 @@ export default function DashboardPage() {
             {/* Voucher redeem */}
             <section className={`${styles.card} stagger-2`}>
               <h2><Ticket size={20} />{text.voucherTitle}</h2>
+
+              {/* Penjelasan cara redeem voucher */}
+              <div className={styles.voucherExplain}>
+                <div className={styles.voucherExplainStep}>
+                  <span className={styles.voucherStepNum}>1</span>
+                  <span>{language === "id" ? "Masukkan kode voucher yang Anda miliki" : "Enter your voucher code"}</span>
+                </div>
+                <div className={styles.voucherExplainStep}>
+                  <span className={styles.voucherStepNum}>2</span>
+                  <span>{language === "id" ? "Klik Redeem untuk mengaktifkan langganan" : "Click Redeem to activate subscription"}</span>
+                </div>
+                <div className={styles.voucherExplainStep}>
+                  <span className={styles.voucherStepNum}>3</span>
+                  <span>{language === "id" ? "Plan Anda otomatis aktif dan bisa akses semua layanan" : "Your plan activates and you can access all services"}</span>
+                </div>
+                <div className={styles.voucherExplainNote}>
+                  {language === "id"
+                    ? "💡 Voucher menentukan plan (Starter / Plus / Max) dan durasi langganan Anda."
+                    : "💡 Voucher determines your plan (Starter / Plus / Max) and subscription duration."}
+                </div>
+              </div>
+
               <form className={styles.voucherForm} onSubmit={handleRedeem}>
                 <input
                   type="text"
@@ -530,32 +713,60 @@ export default function DashboardPage() {
             </section>
 
             {/* Active subscription detail */}
-            {subscription && (
-              <section className={`${styles.card} stagger-2`}>
-                <h2><ShieldCheck size={20} />{text.active}</h2>
+            <section className={`${styles.card} stagger-2`}>
+              <h2><ShieldCheck size={20} />{profile?.plan && profile.plan !== "free" ? text.subscribed : text.noSub}</h2>
+              {profile?.plan && profile.plan !== "free" ? (
+                /* User berlangganan */
                 <div className={styles.subDetail}>
+                  <div className={styles.subStatusInfo}>
+                    <CheckCircle2 size={16} className={styles.subStatusIcon} />
+                    <span>{text.subscribedDesc}</span>
+                  </div>
                   <div className={styles.subDetailRow}>
                     <span className={styles.subDetailLabel}>{language === "id" ? "Plan" : "Plan"}</span>
-                    <span className={`${styles.subDetailValue} ${planColors[subscription.plan]}`}>{subscription.plan.toUpperCase()}</span>
+                    <span className={`${styles.subDetailValue} ${planColors[profile.plan]}`}>{profile.plan.toUpperCase()}</span>
                   </div>
                   <div className={styles.subDetailRow}>
-                    <span className={styles.subDetailLabel}>{language === "id" ? "Mulai" : "Started"}</span>
-                    <span className={styles.subDetailValue}>{new Date(subscription.starts_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}</span>
+                    <span className={styles.subDetailLabel}>Status</span>
+                    <span className={`${styles.subDetailValue} ${styles.subDetailSubscribed}`}>{text.subscribed}</span>
                   </div>
-                  <div className={styles.subDetailRow}>
-                    <span className={styles.subDetailLabel}>{text.subExpires}</span>
-                    <span className={styles.subDetailValue}>{new Date(subscription.expires_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}</span>
-                  </div>
-                  <div className={styles.subDetailRow}>
-                    <span className={styles.subDetailLabel}>{language === "id" ? "Sisa" : "Remaining"}</span>
-                    <span className={`${styles.subDetailValue} ${days <= 7 ? styles.urgentDays : ""}`}>{days} {text.daysLeft}</span>
-                  </div>
-                  <div className={styles.progressBarLarge}>
-                    <div className={styles.progressFill} style={{ width: `${Math.min(100, (days / 30) * 100)}%` }} />
-                  </div>
+                  {subscription && (
+                    <>
+                      <div className={styles.subDetailRow}>
+                        <span className={styles.subDetailLabel}>{language === "id" ? "Mulai" : "Started"}</span>
+                        <span className={styles.subDetailValue}>{new Date(subscription.starts_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}</span>
+                      </div>
+                      <div className={styles.subDetailRow}>
+                        <span className={styles.subDetailLabel}>{text.subExpires}</span>
+                        <span className={styles.subDetailValue}>{new Date(subscription.expires_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}</span>
+                      </div>
+                      <div className={styles.subDetailRow}>
+                        <span className={styles.subDetailLabel}>{language === "id" ? "Sisa" : "Remaining"}</span>
+                        <span className={`${styles.subDetailValue} ${days <= 7 ? styles.urgentDays : ""}`}>{days} {text.daysLeft}</span>
+                      </div>
+                      <div className={styles.progressBarLarge}>
+                        <div className={styles.progressFill} style={{ width: `${Math.min(100, (days / 30) * 100)}%` }} />
+                      </div>
+                    </>
+                  )}
                 </div>
-              </section>
-            )}
+              ) : (
+                /* User FREE */
+                <div className={styles.subDetail}>
+                  <div className={styles.subStatusInfoFree}>
+                    <AlertCircle size={16} className={styles.subStatusIconFree} />
+                    <span>{text.freeDesc}</span>
+                  </div>
+                  <div className={styles.subDetailRow}>
+                    <span className={styles.subDetailLabel}>Status</span>
+                    <span className={`${styles.subDetailValue} ${styles.subDetailFree}`}>{text.noSub}</span>
+                  </div>
+                  <button className={styles.upgradeCardBtn} onClick={() => setActiveTab("overview")}>
+                    {language === "id" ? "Redeem Voucher untuk Upgrade" : "Redeem Voucher to Upgrade"}
+                  </button>
+                </div>
+              )}
+            </section>
 
             {/* Subscription history */}
             <section className={`${styles.card} stagger-3`}>
@@ -566,18 +777,39 @@ export default function DashboardPage() {
                 <div className={styles.historyList}>
                   {subHistory.map((s) => {
                     const expired = new Date(s.expires_at) < new Date();
+                    const isFromVoucher = !!s.voucher_id;
+                    const durationDays = Math.ceil(
+                      (new Date(s.expires_at).getTime() - new Date(s.starts_at).getTime()) / (1000 * 60 * 60 * 24)
+                    );
                     return (
                       <div key={s.id} className={`${styles.historyRow} ${expired ? styles.historyExpired : ""}`}>
                         <div className={styles.historyIcon}>
                           <Clock size={16} />
                         </div>
                         <div className={styles.historyInfo}>
-                          <span className={`${styles.historyPlan} ${planColors[s.plan]}`}>{s.plan.toUpperCase()}</span>
+                          <div className={styles.historyTopRow}>
+                            <span className={`${styles.historyPlan} ${planColors[s.plan]}`}>{s.plan.toUpperCase()}</span>
+                            <span className={isFromVoucher ? styles.historySourceVoucher : styles.historySourceAdmin}>
+                              {isFromVoucher ? (
+                                <><Ticket size={11} />{text.sourceVoucher}</>
+                              ) : (
+                                <><ShieldCheck size={11} />{text.sourceAdmin}</>
+                              )}
+                            </span>
+                          </div>
                           <span className={styles.historyDate}>
                             {new Date(s.starts_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}
                             {" → "}
                             {new Date(s.expires_at).toLocaleDateString(language === "id" ? "id-ID" : "en-US")}
                           </span>
+                          <span className={styles.historyDuration}>
+                            {durationDays} {text.days}
+                          </span>
+                          {expired && (
+                            <span className={styles.historyExpiredNote}>
+                              {text.expiredBackToFree}
+                            </span>
+                          )}
                         </div>
                         <span className={`${styles.historyStatus} ${expired ? styles.historyStatusExpired : styles.historyStatusActive}`}>
                           {expired ? text.expired : text.subActive}
@@ -643,5 +875,13 @@ function ServiceCard({
         )}
       </div>
     </div>
+  );
+}
+
+export default function DashboardPage() {
+  return (
+    <Suspense>
+      <DashboardPageInner />
+    </Suspense>
   );
 }

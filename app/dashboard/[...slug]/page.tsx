@@ -12,7 +12,7 @@ const validToolPageKeys = [
   "plan",
   "notifications",
   "extensions/guard",
-  "extensions/main",
+  // "extensions/main" — ditangani oleh app/dashboard/extensions/main/page.tsx
 ];
 
 export default async function DashboardToolPage({

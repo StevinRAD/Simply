@@ -14,5 +14,6 @@ export async function GET(request: Request) {
     await supabase.auth.exchangeCodeForSession(code);
   }
 
-  return NextResponse.redirect(`${origin}/dashboard`);
+  // Redirect ke dashboard dengan flag untuk register session di client-side
+  return NextResponse.redirect(`${origin}/dashboard?register_session=1`);
 }

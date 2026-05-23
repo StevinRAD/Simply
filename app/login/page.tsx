@@ -13,7 +13,7 @@ import {
   Loader2,
 } from "lucide-react";
 import { LanguageSwitcher, useLanguage, type Language } from "../components/language";
-import { signIn, signInWithGoogle, getProfile } from "@/lib/supabase";
+import { signIn, signInWithGoogle, getProfile, logActivity, registerSession } from "@/lib/supabase";
 import styles from "./page.module.css";
 
 const copy: Record<Language, Record<string, string>> = {
@@ -84,8 +84,15 @@ export default function LoginPage() {
 
     const profile = await getProfile();
     console.log("Profile:", profile);
+
+    // Register device session (invalidate session lama otomatis)
+    await registerSession();
+
+    // Log aktivitas login
+    await logActivity("login", "auth", `Login berhasil via email`, { provider: "email" });
+
     setLoading(false);
-    
+
     const redirectPath = profile?.role === "admin" ? "/admin" : "/dashboard";
     console.log("Redirecting to:", redirectPath);
     window.location.href = redirectPath;

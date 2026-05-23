@@ -11,7 +11,10 @@ import {
   History,
   Loader2,
   Package,
+  ShieldCheck,
   Ticket,
+  UserCheck,
+  XCircle,
 } from "lucide-react";
 import { useLanguage } from "@/app/components/language";
 import {
@@ -40,6 +43,12 @@ const copy = {
     redeemNow: "Redeem Voucher",
     orderDetails: "Detail Order",
     voucherId: "ID Voucher",
+    source: "Sumber",
+    sourceVoucher: "Redeem Voucher",
+    sourceAdmin: "Diaktifkan Admin",
+    expiredNote: "Plan kembali ke Free setelah berakhir",
+    activeNote: "Berlangganan aktif",
+    planLabel: "Plan Aktif",
   },
   en: {
     title: "Order History",
@@ -58,6 +67,12 @@ const copy = {
     redeemNow: "Redeem Voucher",
     orderDetails: "Order Details",
     voucherId: "Voucher ID",
+    source: "Source",
+    sourceVoucher: "Voucher Redeem",
+    sourceAdmin: "Activated by Admin",
+    expiredNote: "Plan reverted to Free after expiry",
+    activeNote: "Active subscription",
+    planLabel: "Active Plan",
   },
 };
 
@@ -134,6 +149,7 @@ export default function OrdersPage() {
               const durationDays = Math.ceil(
                 (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
               );
+              const isFromVoucher = !!order.voucher_id;
 
               return (
                 <div key={order.id} className={`${styles.orderCard} ${expired ? styles.expired : ""}`}>
@@ -155,6 +171,14 @@ export default function OrdersPage() {
                           </>
                         )}
                       </span>
+                      {/* Sumber plan badge */}
+                      <span className={isFromVoucher ? styles.sourceBadgeVoucher : styles.sourceBadgeAdmin}>
+                        {isFromVoucher ? (
+                          <><Ticket size={12} />{text.sourceVoucher}</>
+                        ) : (
+                          <><UserCheck size={12} />{text.sourceAdmin}</>
+                        )}
+                      </span>
                     </div>
                     <span className={styles.orderDate}>
                       <Calendar size={14} />
@@ -167,6 +191,20 @@ export default function OrdersPage() {
                   </div>
 
                   <div className={styles.orderBody}>
+                    <div className={styles.orderRow}>
+                      <span className={styles.label}>{text.source}</span>
+                      <span className={styles.value}>
+                        {isFromVoucher ? (
+                          <span className={styles.sourceValueVoucher}>
+                            <Ticket size={13} />{text.sourceVoucher}
+                          </span>
+                        ) : (
+                          <span className={styles.sourceValueAdmin}>
+                            <ShieldCheck size={13} />{text.sourceAdmin}
+                          </span>
+                        )}
+                      </span>
+                    </div>
                     <div className={styles.orderRow}>
                       <span className={styles.label}>{text.startDate}</span>
                       <span className={styles.value}>
@@ -189,7 +227,7 @@ export default function OrdersPage() {
                     </div>
                     <div className={styles.orderRow}>
                       <span className={styles.label}>{text.duration}</span>
-                      <span className={styles.value}>
+                      <span className={`${styles.value} ${styles.durationValue}`}>
                         {durationDays} {text.days}
                       </span>
                     </div>
@@ -200,6 +238,19 @@ export default function OrdersPage() {
                       </div>
                     )}
                   </div>
+
+                  {/* Keterangan status setelah expired */}
+                  {expired ? (
+                    <div className={styles.expiredNote}>
+                      <XCircle size={14} />
+                      {text.expiredNote}
+                    </div>
+                  ) : (
+                    <div className={styles.activeNote}>
+                      <CheckCircle2 size={14} />
+                      {text.activeNote}
+                    </div>
+                  )}
                 </div>
               );
             })}

@@ -38,12 +38,10 @@ const copy: Record<Language, Record<string, string>> = {
     submit: "Buat Akun Simply",
     alreadyHaveAccount: "Sudah punya akun?",
     signIn: "Masuk",
-    orContinueWith: "atau daftar dengan",
+    orContinueWith: "atau lanjutkan dengan",
     googleSignup: "Daftar dengan Google",
     errorMismatch: "Password tidak cocok",
     errorGeneric: "Gagal membuat akun. Coba lagi.",
-    successTitle: "Akun berhasil dibuat!",
-    successDesc: "Cek email kamu untuk verifikasi, lalu login.",
   },
   en: {
     backToHome: "Back to Home",
@@ -64,12 +62,10 @@ const copy: Record<Language, Record<string, string>> = {
     submit: "Create Simply Account",
     alreadyHaveAccount: "Already have an account?",
     signIn: "Sign in",
-    orContinueWith: "or sign up with",
+    orContinueWith: "or continue with",
     googleSignup: "Sign up with Google",
     errorMismatch: "Passwords do not match",
     errorGeneric: "Failed to create account. Try again.",
-    successTitle: "Account created!",
-    successDesc: "Check your email for verification, then sign in.",
   },
 };
 
@@ -100,28 +96,24 @@ export default function RegisterPage() {
       return;
     }
 
-    const { error: authError } = await signUp(email, password, name);
+    const { error: authError, data } = await signUp(email, password, name);
     if (authError) {
       setError(authError.message || text.errorGeneric);
       setLoading(false);
       return;
     }
 
-    setSuccess(true);
+    // Jika session langsung tersedia (email confirmation disabled di Supabase),
+    // redirect ke dashboard. Jika tidak, tetap redirect ke dashboard dengan flag.
+    if (data?.session) {
+      // Session aktif — langsung ke dashboard
+      router.push("/dashboard?new=1");
+    } else {
+      // Session belum aktif (perlu verifikasi email) — redirect ke dashboard
+      // dengan flag agar dashboard menampilkan banner verifikasi
+      router.push("/dashboard?verify=1");
+    }
     setLoading(false);
-  }
-
-  if (success) {
-    return (
-      <main className={styles.registerPage}>
-        <div className={`${styles.successCard} fade-in`}>
-          <CheckCircle2 size={48} className={styles.successIcon} />
-          <h2>{text.successTitle}</h2>
-          <p>{text.successDesc}</p>
-          <Link href="/login" className={styles.successLink}>{text.signIn}</Link>
-        </div>
-      </main>
-    );
   }
 
   return (

@@ -31,9 +31,12 @@ const copy = {
     back: "Kembali ke Dashboard",
     currentPlan: "Plan Saat Ini",
     active: "Aktif",
+    subscribed: "Berlangganan",
     expires: "Berakhir",
     daysLeft: "hari tersisa",
-    noSub: "Belum ada langganan aktif",
+    noSub: "Belum berlangganan",
+    subscribedDesc: "Anda sedang berlangganan. Nikmati akses ke layanan sesuai plan Anda.",
+    freeDesc: "Anda menggunakan plan gratis. Redeem voucher untuk upgrade dan akses semua layanan.",
     history: "Riwayat Langganan",
     noHistory: "Belum ada riwayat langganan.",
     plan: "Plan",
@@ -51,9 +54,12 @@ const copy = {
     back: "Back to Dashboard",
     currentPlan: "Current Plan",
     active: "Active",
+    subscribed: "Subscribed",
     expires: "Expires",
     daysLeft: "days left",
-    noSub: "No active subscription",
+    noSub: "Not subscribed",
+    subscribedDesc: "You are subscribed. Enjoy access to services based on your plan.",
+    freeDesc: "You are on the free plan. Redeem a voucher to upgrade and access all services.",
     history: "Subscription History",
     noHistory: "No subscription history yet.",
     plan: "Plan",
@@ -156,40 +162,53 @@ export default function BillingPage() {
               <span className={`${styles.planBadge} ${styles[profile?.plan || "free"]}`}>
                 {profile?.plan?.toUpperCase()}
               </span>
-              {subscription && (
+              {profile?.plan && profile.plan !== "free" ? (
                 <span className={styles.statusBadge}>
                   <CheckCircle2 size={14} />
-                  {text.active}
+                  {text.subscribed}
+                </span>
+              ) : (
+                <span className={styles.statusBadgeFree}>
+                  {text.noSub}
                 </span>
               )}
             </div>
 
-            {subscription ? (
+            {profile?.plan && profile.plan !== "free" ? (
+              /* User berlangganan (starter/plus/max) */
               <div className={styles.subInfo}>
-                <div className={styles.subRow}>
-                  <span className={styles.label}>
-                    <Calendar size={14} />
-                    {text.expires}
-                  </span>
-                  <span className={styles.value}>
-                    {new Date(subscription.expires_at).toLocaleDateString(
-                      language === "id" ? "id-ID" : "en-US",
-                      { day: "numeric", month: "long", year: "numeric" }
-                    )}
-                  </span>
-                </div>
-                <div className={styles.progressBar}>
-                  <div
-                    className={styles.progressFill}
-                    style={{ width: `${Math.min(100, (days / 30) * 100)}%` }}
-                  />
-                </div>
-                <p className={styles.daysLeft}>
-                  {days} {text.daysLeft}
-                </p>
+                <p className={styles.subDesc}>{text.subscribedDesc}</p>
+                {subscription && (
+                  <>
+                    <div className={styles.subRow}>
+                      <span className={styles.label}>
+                        <Calendar size={14} />
+                        {text.expires}
+                      </span>
+                      <span className={styles.value}>
+                        {new Date(subscription.expires_at).toLocaleDateString(
+                          language === "id" ? "id-ID" : "en-US",
+                          { day: "numeric", month: "long", year: "numeric" }
+                        )}
+                      </span>
+                    </div>
+                    <div className={styles.progressBar}>
+                      <div
+                        className={styles.progressFill}
+                        style={{ width: `${Math.min(100, (days / 30) * 100)}%` }}
+                      />
+                    </div>
+                    <p className={styles.daysLeft}>
+                      {days} {text.daysLeft}
+                    </p>
+                  </>
+                )}
               </div>
             ) : (
-              <p className={styles.noSub}>{text.noSub}</p>
+              /* User FREE */
+              <div className={styles.subInfo}>
+                <p className={styles.noSub}>{text.freeDesc}</p>
+              </div>
             )}
 
             <div className={styles.features}>

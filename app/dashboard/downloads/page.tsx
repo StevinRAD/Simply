@@ -137,24 +137,6 @@ export default function DownloadsPage() {
           </section>
         </div>
 
-        {/* GitHub Source Link */}
-        <section className={styles.githubSection}>
-          <div className={styles.githubCard}>
-            <span className={styles.githubIcon}>💻</span>
-            <div>
-              <h3>Source Code di GitHub</h3>
-              <p>Download source code lengkap atau lihat kode extension di GitHub.</p>
-            </div>
-            <a
-              href={GITHUB_REPO}
-              className={`${styles.btn} ${styles.btnGithub}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Buka GitHub →
-            </a>
-          </div>
-        </section>
 
         {/* Installation Instructions */}
         <section className={styles.instructions}>

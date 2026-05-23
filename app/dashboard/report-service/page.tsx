@@ -181,7 +181,7 @@ export default function ReportServicePage() {
                 <option value="">{text.selectServicePlaceholder}</option>
                 {services.map((service) => (
                   <option key={service.id} value={service.id}>
-                    {service.name} ({service.domain})
+                    {service.name}
                   </option>
                 ))}
               </select>

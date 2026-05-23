@@ -113,6 +113,50 @@
   margin: 0;
 }
 
+/* ── Subscription status badges ── */
+.subStatusBadge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(72, 187, 120, 0.12);
+  color: #276749;
+  border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+.subStatusBadgeFree {
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: rgba(245, 101, 101, 0.1);
+  color: #c53030;
+  border: 1px solid rgba(245, 101, 101, 0.3);
+}
+
+/* ── Plan info boxes ── */
+.planInfoBoxSubscribed {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(72, 187, 120, 0.08);
+  border: 1px solid rgba(72, 187, 120, 0.2);
+  border-radius: 0.5rem;
+  color: #276749;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.planInfoBoxFree {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(245, 101, 101, 0.06);
+  border: 1px solid rgba(245, 101, 101, 0.2);
+  border-radius: 0.5rem;
+  color: #c53030;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
 .plansSection {
   background: white;
   border-radius: 16px;
